@@ -52,7 +52,7 @@
 						<span class="w-1/3 h-10">Type</span>
 						<select
 							name="type"
-							id="type"
+							id="gunType"
 							required
 							class="w-2/3 h-10 bg-indigo-500 text-indigo-50 rounded text-center text-md"
 						>
@@ -96,7 +96,7 @@
 						<span class="self-start w-1/3 h-10 pt-1">Name</span>
 						<input
 							type="text"
-							id="gun"
+							id="gunName"
 							name="gun"
 							required
 							class="w-2/3 h-10 w-full border-0 border-2 border-indigo-400 p-2 rounded focus:outline-none capitalize"
@@ -161,6 +161,7 @@
 					</div>
 					<button
 						type="submit"
+						id="addGun"
 						class="self-end bg-indigo-500 w-40 h-10 rounded-md text-indigo-50 hover:bg-indigo-700"
 					>
 						Add
@@ -168,8 +169,33 @@
 				</form>
 			</div>
 
-			<div class="container flex flex-col bg-indigo-50 h-full rounded-md p-7">
-				Summary
+			<div
+				class="container flex flex-col bg-indigo-50 h-full rounded-md relative"
+				style="max-height: 36.5rem"
+			>
+				<div class="h-4/5 grow-0 overflow-y-auto rounded-md">
+					<table class="w-full text-md text-center">
+						<thead class="text-md uppercase text-gray-700">
+							<tr class="bg-indigo-500 text-slate-50">
+								<th scope="col" class="w-1/3 py-3 px-6">Name</th>
+								<th scope="col" class="w-1/3 py-3 px-6">Type</th>
+								<th scope="col" class="w-1/3 py-3 px-6">Conditions</th>
+							</tr>
+						</thead>
+						<tbody id="mainTable" class="divide-y-2 divide-slate-300">
+							<!-- Table data -->
+						</tbody>
+					</table>
+				</div>
+				<p class="text-center text-rose-500 text-lg pt-4">
+					If all links are not opening then enable popups for this website.
+				</p>
+				<button
+					id="generateGunsLink"
+					class="self-end bg-indigo-500 px-5 py-2 rounded-md text-indigo-50 absolute bottom-4 right-4"
+				>
+					Generate Links
+				</button>
 			</div>
 		</div>
 
