@@ -24,16 +24,26 @@
 		>
 			<div class="container flex flex-col bg-indigo-50 h-full rounded-md p-7">
 				<ul
-					class="grid grid-cols-2 justify-start gap-5 w-full h-10 border-b-2 border-indigo-500"
+					class="grid grid-cols-2 justify-start w-full h-10 border-b-2 border-indigo-500"
 				>
 					<li
-						class="text-xl pt-1 font-medium text-center bg-indigo-500 border-r-2 border-indigo-500 text-slate-50"
+						id="gunNav"
+						class="cursor-pointer text-xl pt-1 font-medium text-center bg-indigo-500 text-slate-50"
 					>
 						Guns
 					</li>
-					<li class="text-xl pt-1 font-medium text-center">Stickers</li>
+					<li
+						class="cursor-pointer text-xl pt-1 font-medium text-center hover:bg-indigo-100"
+						id="stickerNav"
+					>
+						Stickers
+					</li>
 				</ul>
+
+				<!-- Gun Form -->
+
 				<form
+					id="gunForm"
 					class="container flex flex-col gap-4 items-center justify-evenly h-full mt-10 p-5"
 				>
 					<div class="flex flex-row w-full align-center">
@@ -155,7 +165,18 @@
 						Add
 					</button>
 				</form>
+
+				<!-- Stickler Form -->
+
+				<form
+					id="stickerForm"
+					class="container flex flex-col gap-4 items-center justify-evenly h-full mt-10 p-5 hidden"
+				>
+					<p>Some form</p>
+				</form>
 			</div>
+
+			<!-- Summary -->
 
 			<div
 				class="container flex flex-col bg-indigo-50 h-full rounded-md relative"

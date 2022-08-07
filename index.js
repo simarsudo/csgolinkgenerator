@@ -21,41 +21,77 @@ const aClass = [
 	"gunLinks",
 ];
 
+const navClass = ["bg-indigo-500", "text-slate-50"];
+
 const mainTable = document.getElementById("mainTable");
+
+const gunNav = document.getElementById("gunNav");
+const stickerNav = document.getElementById("stickerNav");
+
+// Navbar click navigation function
+
+gunNav.addEventListener("click", () => {
+	gunNav.classList.add(...navClass);
+	gunNav.classList.remove("hover:bg-indigo-100");
+	stickerNav.classList.remove(...navClass);
+	stickerNav.classList.add("hover:bg-indigo-100");
+
+	const gunForm = document.getElementById("gunForm");
+	const stickerForm = document.getElementById("stickerForm");
+
+	gunForm.classList.remove("hidden");
+	stickerForm.classList.add("hidden");
+});
+
+stickerNav.addEventListener("click", () => {
+	stickerNav.classList.add(...navClass);
+	stickerNav.classList.remove("hover:bg-indigo-100");
+	gunNav.classList.remove(...navClass);
+	gunNav.classList.add("hover:bg-indigo-100");
+
+	const gunForm = document.getElementById("gunForm");
+	const stickerForm = document.getElementById("stickerForm");
+
+	gunForm.classList.add("hidden");
+	stickerForm.classList.remove("hidden");
+});
+
+// Captilize function
 
 function capitalize(word) {
 	return word.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
 }
 
-// Add gun to summary
+// Gun Generator
 
 const gun = document
 	.getElementById("addGun")
 	.addEventListener("click", function (event) {
 		event.preventDefault();
+
 		const gunType = document.getElementById("gunType").value;
 		const gunName = document.getElementById("gunName").value;
 		let gunConditions = [];
 
+		// Checking check boxes
+
 		if (document.getElementById("FN").checked) {
 			gunConditions.push("FN");
 		}
-
 		if (document.getElementById("MW").checked) {
 			gunConditions.push("MW");
 		}
-
 		if (document.getElementById("FT").checked) {
 			gunConditions.push("FT");
 		}
-
 		if (document.getElementById("WW").checked) {
 			gunConditions.push("WW");
 		}
-
 		if (document.getElementById("BS").checked) {
 			gunConditions.push("BS");
 		}
+
+		// Creating table elements
 
 		const tr = document.createElement("tr");
 		const nametd = document.createElement("td");
@@ -98,10 +134,9 @@ const gun = document
 		tr.appendChild(conditionstd);
 
 		mainTable.appendChild(tr);
-
-		// console.log(conditionstd);
-		// console.log(gunType, gunName, gunConditions);
 	});
+
+// Generate all Gun links
 
 document.getElementById("generateGunsLink").addEventListener("click", () => {
 	const gunLinks = document.querySelectorAll("a.gunLinks");
@@ -110,3 +145,5 @@ document.getElementById("generateGunsLink").addEventListener("click", () => {
 		console.log(gunLink.href);
 	});
 });
+
+// Sticker Generator
