@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						fontFamily: {
+							sans: ["Inter", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+		<div
+			class="container grid grid-cols-2 gap-20 items-center mx-auto p-20 min-w-screen min-h-screen bg-indigo-700"
+		>
+			<div class="container flex flex-col bg-indigo-50 h-full rounded-md p-7">
+				<ul
+					class="grid grid-cols-2 justify-start gap-5 w-full h-10 border-b-2 border-indigo-500"
+				>
+					<li
+						class="text-xl pt-1 font-medium text-center bg-indigo-500 border-r-2 border-indigo-500 text-slate-50"
+					>
+						Guns
+					</li>
+					<li class="text-xl pt-1 font-medium text-center">Stickers</li>
+				</ul>
+				<form
+					class="container flex flex-col gap-4 items-center justify-evenly h-full mt-10 p-5"
+				>
+					<div class="flex flex-row w-full align-center">
+						<span class="w-1/3 h-10">Type</span>
+						<select
+							name="type"
+							id="type"
+							required
+							class="w-2/3 h-10 bg-indigo-500 text-indigo-50 rounded text-center text-md"
+						>
+							<option value="" disabled selected>Select Gun</option>
+							<option value="AK-47">AK-47</option>
+							<option value="AUG">AUG</option>
+							<option value="AWP">AWP</option>
+							<option value="CZ75-Auto">CZ75-Auto</option>
+							<option value="Desert Eagle">Desert Eagle</option>
+							<option value="Dual Berettas">Dual Berettas</option>
+							<option value="FAMAS">FAMAS</option>
+							<option value="Five-SeveN">Five-SeveN</option>
+							<option value="G3G1">G3G1</option>
+							<option value="Galil AR">Galil AR</option>
+							<option value="Glock-18">Glock-18</option>
+							<option value="M249">M249</option>
+							<option value="M4A1-S">M4A1-S</option>
+							<option value="M4A4">M4A4</option>
+							<option value="MAC-10">MAC-10</option>
+							<option value="MAG-7">MAG-7</option>
+							<option value="MP7">MP7</option>
+							<option value="MP9">MP9</option>
+							<option value="Negav">Negav</option>
+							<option value="Nova">Nova</option>
+							<option value="P2000">P2000</option>
+							<option value="P90">P90</option>
+							<option value="PP-Bizon">PP-Bizon</option>
+							<option value="Sawed-Off">Sawed-Off</option>
+							<option value="SCAR-20">SCAR-20</option>
+							<option value="SG 553">SG 553</option>
+							<option value="SSG 08">SSG 08</option>
+							<option value="Tec-9">Tec-9</option>
+							<option value="UMP-45">UMP-45</option>
+							<option value="USP-S">USP-S</option>
+							<option value="XM1014">XM1014</option>
+						</select>
+						<br />
+					</div>
+
+					<div class="flex flex-row w-full align-center">
+						<span class="self-start w-1/3 h-10 pt-1">Name</span>
+						<input
+							type="text"
+							id="gun"
+							name="gun"
+							required
+							class="w-2/3 h-10 w-full border-0 border-2 border-indigo-400 p-2 rounded focus:outline-none capitalize"
+						/>
+						<br />
+					</div>
+
+					<div class="flex flex-row w-full align-center">
+						<span class="self-start w-1/3">Condition/s</span>
+						<div class="grid grid-cols-5 w-2/3">
+							<div class="flex flex-row min-w-full justify-start">
+								<input
+									class="accent-indigo-500 w-5 h-5"
+									type="checkbox"
+									id="FN"
+									name="FN"
+									value="true"
+								/>
+								<span class="ml-2">FN</span>
+							</div>
+							<div class="flex flex-row min-w-full justify-center">
+								<input
+									class="accent-indigo-500 w-5 h-5"
+									type="checkbox"
+									id="MW"
+									name="MW"
+									value="true"
+								/>
+								<span class="ml-2">MW</span>
+							</div>
+							<div class="flex flex-row min-w-full justify-center">
+								<input
+									class="accent-indigo-500 w-5 h-5"
+									type="checkbox"
+									id="FT"
+									name="FT"
+									value="true"
+								/>
+								<span class="ml-2">FT</span>
+							</div>
+							<div class="flex flex-row min-w-full justify-center">
+								<input
+									class="accent-indigo-500 w-5 h-5"
+									type="checkbox"
+									id="WW"
+									name="WW"
+									value="true"
+								/>
+								<span class="ml-2">WW</span>
+							</div>
+							<div class="flex flex-row min-w-full justify-center">
+								<input
+									class="accent-indigo-500 w-5 h-5"
+									type="checkbox"
+									id="BS"
+									name="BS"
+									value="true"
+								/>
+								<span class="ml-2">BS</span>
+							</div>
+						</div>
+					</div>
+					<button
+						type="submit"
+						class="self-end bg-indigo-500 w-40 h-10 rounded-md text-indigo-50 hover:bg-indigo-700"
+					>
+						Add
+					</button>
+				</form>
+			</div>
+
+			<div class="container flex flex-col bg-indigo-50 h-full rounded-md p-7">
+				Summary
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
