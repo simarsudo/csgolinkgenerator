@@ -56,12 +56,6 @@ stickerNav.addEventListener("click", () => {
 	stickerForm.classList.remove("hidden");
 });
 
-// Captilize function
-
-function capitalize(word) {
-	return word.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
-}
-
 // Gun Generator
 
 const gun = document
@@ -119,7 +113,7 @@ const gun = document
 					gunType +
 					" " +
 					"| " +
-					capitalize(gunName) +
+					gunName +
 					" " +
 					`(${conditions[gunCondition]})`
 			)
