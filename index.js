@@ -58,77 +58,70 @@ stickerNav.addEventListener("click", () => {
 
 // Gun Generator
 
-const gun = document
-	.getElementById("addGun")
-	.addEventListener("click", function (event) {
-		event.preventDefault();
+document.getElementById("addGun").addEventListener("click", function (event) {
+	event.preventDefault();
 
-		const gunType = document.getElementById("gunType").value;
-		const gunName = document.getElementById("gunName").value;
-		let gunConditions = [];
+	const gunType = document.getElementById("gunType").value;
+	const gunName = document.getElementById("gunName").value;
+	let gunConditions = [];
 
-		// Checking check boxes
+	// Checking check boxes
 
-		if (document.getElementById("FN").checked) {
-			gunConditions.push("FN");
-		}
-		if (document.getElementById("MW").checked) {
-			gunConditions.push("MW");
-		}
-		if (document.getElementById("FT").checked) {
-			gunConditions.push("FT");
-		}
-		if (document.getElementById("WW").checked) {
-			gunConditions.push("WW");
-		}
-		if (document.getElementById("BS").checked) {
-			gunConditions.push("BS");
-		}
+	if (document.getElementById("FN").checked) {
+		gunConditions.push("FN");
+	}
+	if (document.getElementById("MW").checked) {
+		gunConditions.push("MW");
+	}
+	if (document.getElementById("FT").checked) {
+		gunConditions.push("FT");
+	}
+	if (document.getElementById("WW").checked) {
+		gunConditions.push("WW");
+	}
+	if (document.getElementById("BS").checked) {
+		gunConditions.push("BS");
+	}
 
-		// Creating table elements
+	// Creating table elements
 
-		const tr = document.createElement("tr");
-		const nametd = document.createElement("td");
-		const typetd = document.createElement("td");
-		const conditionstd = document.createElement("td");
+	const tr = document.createElement("tr");
+	const nametd = document.createElement("td");
+	const typetd = document.createElement("td");
+	const conditionstd = document.createElement("td");
 
-		nametd.innerText = gunName;
-		nametd.classList.add(...tdClass);
-		typetd.innerText = gunType;
-		typetd.classList.add(...tdClass);
-		conditionstd.classList.add(
-			...tdClass,
-			"flex",
-			"flex-row",
-			"justify-evenly"
-		);
+	nametd.innerText = gunName;
+	nametd.classList.add(...tdClass);
+	typetd.innerText = gunType;
+	typetd.classList.add(...tdClass);
+	conditionstd.classList.add(...tdClass, "flex", "flex-row", "justify-evenly");
 
-		gunConditions.forEach((gunCondition) => {
-			const aLink = document.createElement("a");
-			aLink.target = "_blank";
-			aLink.innerText = gunCondition;
-			aLink.classList.add(...aClass);
-			aLink.href = encodeURI(
-				baseLink +
-					gunType +
-					" " +
-					"| " +
-					gunName +
-					" " +
-					`(${conditions[gunCondition]})`
-			)
-				.replace("(", "%28")
-				.replace(")", "%29");
+	gunConditions.forEach((gunCondition) => {
+		const aLink = document.createElement("a");
+		aLink.target = "_blank";
+		aLink.innerText = gunCondition;
+		aLink.classList.add(...aClass);
+		aLink.href = encodeURI(
+			baseLink +
+				gunType +
+				" " +
+				"| " +
+				gunName +
+				" " +
+				`(${conditions[gunCondition]})`
+		)
+			.replace("(", "%28")
+			.replace(")", "%29");
 
-			conditionstd.appendChild(aLink);
-		});
-
-		tr.appendChild(nametd);
-		tr.appendChild(typetd);
-		tr.appendChild(conditionstd);
-
-		mainTable.appendChild(tr);
+		conditionstd.appendChild(aLink);
 	});
+
+	tr.appendChild(nametd);
+	tr.appendChild(typetd);
+	tr.appendChild(conditionstd);
+
+	mainTable.appendChild(tr);
+});
 
 // Generate all Gun links
 
@@ -141,3 +134,103 @@ document.getElementById("generateGunsLink").addEventListener("click", () => {
 });
 
 // Sticker Generator
+
+// is tournament sticker check
+
+document.getElementById("isTournament").addEventListener("change", (e) => {
+	if (e.target.checked) {
+		console.log("checked");
+		tournamentName.removeAttribute("disabled");
+	} else {
+		console.log("not checked");
+		tournamentName.disabled = true;
+	}
+});
+
+// add sticker function
+
+document.getElementById("addSticker").addEventListener("click", (event) => {
+	event.preventDefault();
+
+	const istournamentSticker = document.getElementById("isTournament");
+	const tournamentName = document.getElementById("tournamentName");
+	const stickerName = document.getElementById("stickerName").value;
+	const goldCheckbox = document.getElementById("Gold");
+	const holoCheckbox = document.getElementById("Holo");
+	const glitterCheckbox = document.getElementById("Glitter");
+	const foilCheckbox = document.getElementById("Foil");
+	const paperCheckbox = document.getElementById("Paper");
+
+	const tr = document.createElement("tr");
+	const nametd = document.createElement("td");
+	const typetd = document.createElement("td");
+	const conditionstd = document.createElement("td");
+
+	const stickerLink =
+		"https://steamcommunity.com/market/listings/730/Sticker | ";
+
+	let stickerType = [];
+
+	if (goldCheckbox.checked) {
+		stickerType.push("Gold");
+	}
+	if (holoCheckbox.checked) {
+		stickerType.push("Holo");
+	}
+	if (foilCheckbox.checked) {
+		stickerType.push("Foil");
+	}
+	if (glitterCheckbox.checked) {
+		stickerType.push("Glitter");
+	}
+
+	nametd.innerText = stickerName;
+	nametd.classList.add(...tdClass);
+	typetd.innerText = "Sticker";
+	typetd.classList.add(...tdClass);
+	conditionstd.classList.add(...tdClass, "flex", "flex-row", "justify-evenly");
+
+	if (paperCheckbox.checked) {
+		const aLink = document.createElement("a");
+		aLink.target = "_blank";
+		aLink.innerText = "Paper";
+		aLink.classList.add(...aClass);
+
+		aLink.href = encodeURI(
+			stickerLink +
+				stickerName +
+				(istournamentSticker.checked ? ` | ${tournamentName.value}` : "")
+		)
+			.replace("(", "%28")
+			.replace(")", "%29");
+
+		conditionstd.appendChild(aLink);
+		console.log(aLink.href);
+	}
+
+	stickerType.forEach((sticker) => {
+		const aLink = document.createElement("a");
+		aLink.target = "_blank";
+		aLink.innerText = sticker;
+		aLink.classList.add(...aClass);
+
+		aLink.href = encodeURI(
+			stickerLink +
+				stickerName +
+				` (${sticker})` +
+				(istournamentSticker.checked ? ` | ${tournamentName.value}` : "")
+		)
+			.replace("(", "%28")
+			.replace(")", "%29");
+
+		conditionstd.appendChild(aLink);
+
+		console.log(aLink.href);
+	});
+
+	tr.appendChild(nametd);
+	tr.appendChild(typetd);
+	tr.appendChild(conditionstd);
+
+	mainTable.appendChild(tr);
+});
