@@ -63,6 +63,7 @@ document.getElementById("addGun").addEventListener("click", function (event) {
 
 	const gunType = document.getElementById("gunType").value;
 	const gunName = document.getElementById("gunName").value;
+	const isSt = document.getElementById("isSt");
 	let gunConditions = [];
 
 	// Checking check boxes
@@ -90,7 +91,7 @@ document.getElementById("addGun").addEventListener("click", function (event) {
 	const typetd = document.createElement("td");
 	const conditionstd = document.createElement("td");
 
-	nametd.innerText = gunName;
+	nametd.innerText = gunName + (isSt.checked ? " StatTrak™ " : "");
 	nametd.classList.add(...tdClass);
 	typetd.innerText = gunType;
 	typetd.classList.add(...tdClass);
@@ -102,7 +103,7 @@ document.getElementById("addGun").addEventListener("click", function (event) {
 		aLink.innerText = gunCondition;
 		aLink.classList.add(...aClass);
 		aLink.href = encodeURI(
-			baseLink +
+			baseLink + (isSt.checked ? "StatTrak™ " : "") +
 				gunType +
 				" " +
 				"| " +
